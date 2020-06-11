@@ -1,0 +1,15 @@
+.grid_table_wrapper_head {
+    // grid-row: header;
+    color: var(--titleGray);
+    letter-spacing: 1.4px;
+    // font: normal normal normal calc(16px / 1.38 + 1vmin) var(--mainFontFamily);
+    text-align: left;
+    // padding: 2.2em 0.1em 0.6em 0;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: flex-start;
+    border-bottom: 1px solid var(--borderGray);
+}

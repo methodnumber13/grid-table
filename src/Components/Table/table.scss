@@ -1,0 +1,20 @@
+@import '../../../Styles/vars.scss';
+
+.grid_table {
+    display: grid;
+    border-collapse: collapse;
+    border-spacing: 0;
+    grid-auto-columns: auto;
+    overflow: hidden;
+    &_template{
+        border-bottom: 1px solid var(--borderGray);
+        border-top: 1px solid var(--borderGray);
+        border-left: 1px solid var(--borderGray);
+        border-right: 1px solid var(--borderGray);
+    }
+}
+
+.column_container {
+    width: 9vmax;
+    align-items: center;
+}

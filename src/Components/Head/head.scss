@@ -1,0 +1,10 @@
+@import '../../../Styles/vars.scss';
+
+.head_subgrid {
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-wrap: nowrap;
+    align-self: auto;
+    font: normal normal normal calc(11px + 1vmin) var(--mainFontFamily);
+}
