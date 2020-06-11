@@ -1,0 +1,15 @@
+{
+    "printWidth": 100,
+    "tabWidth": 4,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "semi": true,
+    "newline-before-return": true,
+    "no-duplicate-variable": [true, "check-parameters"],
+    "no-var-keyword": true,
+    "jsxBracketSameLine": false,
+    "jsxSingleQuote": true,
+    "bracketSpacing": true,
+    "arrowParens": "avoid",
+    "endOfLine": "auto"
+}

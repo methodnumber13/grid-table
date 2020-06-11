@@ -1,0 +1,6 @@
+*.css
+*.scss
+*.svg
+jest.config*
+webpack.config.js
+global.d.ts
