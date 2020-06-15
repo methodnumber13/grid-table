@@ -1,7 +1,7 @@
 {
     "name": "grid-table",
-    "main": "lib/index.js",
-    "types": "lib/index.d.ts",
+    "main": "index.js",
+    "types": "index.d.ts",
     "license": "ISC",
     "author": "Evgeniy Volkov <afrow0w13@gmail.com>",
     "version": "1.0.0",
@@ -9,16 +9,24 @@
         "type": "git",
         "url": "git@github.com:methodnumber13/grid-table.git"
     },
-    "description": "Custom react table based on grid and flex",
-    "keywords": ["grid", "table", "grid-table", "react", "datagrid"],
+    "description": "Custom react table based on typescript, grid and flex",
+    "keywords": [
+        "grid",
+        "table",
+        "grid-table",
+        "react",
+        "typescript"
+    ],
     "peerDependencies": {
         "react": "^16.13.1"
     },
     "scripts": {
-        "build": "npm run prebuild && node node_modules/.bin/webpack --config ./webpack.config.js --progress --display-error-details && npm run lint && npm run prettier-format",
+        "build": "npm run prebuild && npm run webpack && npm run lint && npm run prettier-format && npm run copycfg",
         "lint": "eslint 'src/**/*.{ts,tsx}'",
+        "webpack": "node node_modules/.bin/webpack --config ./webpack.config.js --progress --display-error-details",
         "prettier-format": "prettier --config .prettierrc.json 'src/**/*.{ts,tsx}' --write",
-        "prebuild": "tsc -p ./tsconfig.json"
+        "prebuild": "tsc -p ./tsconfig.json",
+        "copycfg": "cp package.json README.md lib"
     },
     "browserslist": {
         "production": [
@@ -45,19 +53,18 @@
         ]
     },
     "devDependencies": {
-        "typescript": "~3.7.2",
-        "@testing-library/jest-dom": "^4.2.4",
-        "@testing-library/react": "^9.3.2",
-        "@testing-library/user-event": "^7.1.2",
-        "@types/jest": "^24.0.0",
-        "@types/node": "^12.0.0",
         "@babel/core": "^7.9.6",
         "@babel/plugin-proposal-class-properties": "^7.8.3",
         "@babel/plugin-proposal-decorators": "^7.8.3",
         "@babel/preset-env": "^7.9.6",
         "@babel/preset-react": "^7.9.4",
         "@babel/preset-typescript": "^7.9.0",
+        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/react": "^9.3.2",
+        "@testing-library/user-event": "^7.1.2",
         "@types/axios": "^0.14.0",
+        "@types/jest": "^24.0.0",
+        "@types/node": "^12.0.0",
         "@types/react": "^16.9.34",
         "@types/react-dom": "^16.9.7",
         "@typescript-eslint/eslint-plugin": "^2.31.0",
@@ -83,6 +90,7 @@
         "style-loader": "^1.2.1",
         "terser-webpack-plugin": "^3.0.3",
         "ts-loader": "^7.0.2",
+        "typescript": "~3.7.2",
         "typings-for-css-modules-loader": "^1.7.0",
         "webpack": "^4.43.0",
         "webpack-cli": "^3.3.11"

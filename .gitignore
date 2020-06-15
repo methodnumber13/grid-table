@@ -28,7 +28,7 @@ yarn-error.log*
 lerna-debug.log*
 
 # Loc
-# package-lock.json
+package-lock.json
 yarn.lock
 
 # VS code
