@@ -3,8 +3,9 @@ import './table.scss';
 import { TableProps } from '../ITable';
 import Body from '../Body/Body';
 import Head from '../Head/Head';
+import Row from '../Row/Row';
 import constant from '../constants';
-import { tableService } from '../services/services';
+import { tableSvc } from '../services/services';
 import SpinnerWrapper from '../Wrappers/Spinner/SpinnerWrapper';
 
 export default function Table<T>(props: TableProps<T>) {
@@ -13,12 +14,21 @@ export default function Table<T>(props: TableProps<T>) {
     const isData = () => Array.isArray(data);
 
     function checkSpinner() {
-        if (!spinner && !data?.length) {
+        if (!spinner && !data.length) {
             return <span>{'No data!'}</span>;
-        } else if (spinner && !data?.length) {
+        } else if (spinner && !data.length) {
             return <SpinnerWrapper>{spinner()}</SpinnerWrapper>;
         }
-        return children;
+        return (
+            children || (
+                <>
+                    <Head />
+                    <Body>
+                        <Row />
+                    </Body>
+                </>
+            )
+        );
     }
 
     const renderTable = () => {
@@ -26,13 +36,13 @@ export default function Table<T>(props: TableProps<T>) {
     };
 
     useEffect(() => {
-        tableService.setTableState({ data });
+        tableSvc.setTableState({ data });
     }, [data]);
     useEffect(() => {
-        tableService.setTableState({ columns });
+        tableSvc.setTableState({ columns });
     }, [columns]);
     useEffect(() => {
-        tableService.setTableState({ template });
+        tableSvc.setTableState({ template });
     }, [template]);
 
     return (

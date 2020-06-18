@@ -1,26 +1,26 @@
 import React from 'react';
 import { HeaderProps } from '../ITable';
 import { useObservable } from '../customHooks/ObservableHook/observableHook';
-import { tableService } from '../services/services';
+import { tableSvc } from '../services/services';
 import { joinClasses, setTemplate } from '../Helpers';
 import HeadWrapper from '../Wrappers/Head/HeadWrapper';
 import './head.scss';
 import { Position } from '../DataTypes';
 
-function Head<T>({
+export default function Head<T>({
     className = '',
     style = {},
     position,
     wrapperStyle = {},
     ...rest
 }: HeaderProps<T>) {
-    const { columns, template } = useObservable(tableService.State);
+    const { columns, template } = useObservable(tableSvc.State);
     function setPosition() {
         const pos = Position[position!];
         if (pos) return { justifyContent: pos };
     }
     function renderHead() {
-        return columns?.map(column => (
+        return columns.map(column => (
             <span
                 {...rest}
                 className={joinClasses(
@@ -39,4 +39,3 @@ function Head<T>({
 
     return <HeadWrapper style={wrapperStyle}>{renderHead()}</HeadWrapper>;
 }
-export default Head;

@@ -3,13 +3,13 @@ import constant from '../../constants';
 import { HeadWrapperProps } from '../../ITable';
 import './headWrapper.scss';
 import { useObservable } from '../../customHooks/ObservableHook/observableHook';
-import { tableService } from '../../services/services';
+import { tableSvc } from '../../services/services';
 
 export default function RenderHeads({ children, style = {} }: HeadWrapperProps) {
-    const { columns, data } = useObservable(tableService.State);
+    const { columns, data } = useObservable(tableSvc.State);
     const checkAfterFiltering = () => {
         const lengthAfterFilter = columns?.filter(col => col.title).length;
-        return lengthAfterFilter === columns?.length || lengthAfterFilter === columns!.length - 1;
+        return lengthAfterFilter === columns?.length || lengthAfterFilter === columns.length - 1;
     };
 
     function renderWrapper() {

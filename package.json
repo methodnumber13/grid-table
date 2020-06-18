@@ -4,7 +4,7 @@
     "types": "index.d.ts",
     "license": "ISC",
     "author": "Evgeniy Volkov <afrow0w13@gmail.com>",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "repository": {
         "type": "git",
         "url": "git@github.com:methodnumber13/grid-table.git"
@@ -46,7 +46,7 @@
         }
     },
     "lint-staged": {
-        "*.{js,ts,tsx,css,md}": [
+        "*.{js,ts,tsx,css}": [
             "prettier --config .prettierrc.json 'src/**/*.{ts,tsx}' --write",
             "git add",
             "eslint 'src/**/*.{ts,tsx}'"
