@@ -3,12 +3,12 @@ import { ColumnType } from '../ITable';
 import constant from '../constants';
 import { joinClasses, setTemplate } from '../Helpers';
 import { useObservable } from '../customHooks/ObservableHook/observableHook';
-import { tableService } from '../services/services';
+import { tableSvc } from '../services/services';
 import './column.scss';
 
 export default function Column<T>(props: ColumnType<T>) {
     const { column, record, rowIndex, children, className = '', ...rest } = props;
-    const { data, template } = useObservable(tableService.State);
+    const { data, template } = useObservable(tableSvc.State);
 
     function renderColumn() {
         if (record) {

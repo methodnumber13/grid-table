@@ -1,0 +1,14 @@
+.row_subgrid {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: flex-start;
+    border-bottom: 1px solid var(--borderGray);
+    &:hover {
+        background-color: var(--mainGray);
+        & .hover-btn {
+            visibility: visible;
+        }
+    }
+}

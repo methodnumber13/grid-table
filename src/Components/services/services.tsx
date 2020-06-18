@@ -1,3 +1,3 @@
-import TableService from './tableService';
+import TableService from './tableSvc';
 
-export const tableService = new TableService();
+export const tableSvc = new TableService();
