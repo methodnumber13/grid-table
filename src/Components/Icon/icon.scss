@@ -1,0 +1,16 @@
+.icon {
+    --icon-size: 100%;
+    --icon-color: currentColor;
+
+    display: flex;
+    width: var(--icon-size);
+    height: var(--icon-size);
+
+    font-size: 0;
+
+    svg {
+        width: 100%;
+        height: 100%;
+        fill: var(--icon-color);
+    }
+}
