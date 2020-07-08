@@ -2,19 +2,16 @@
     "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/eslint-recommended",
-        // "plugin:react/recommended",
         "plugin:@typescript-eslint/recommended",
-        // "plugin:prettier/recommended",
         "prettier/@typescript-eslint"
     ],
     "parserOptions": {
-        // "createDefaultProgram": true,
         "ecmaFeatures": {
             "jsx": true,
             "useJSXTextNode": true
         },
         "useJSXTextNode": 1,
-        "project": "./tsconfig.json",
+        "project": ["./tsconfig.json", "./demo/tsconfig.json"],
         "tsconfigRootDir": ".",
         "extraFileExtensions": [".scss", ".svg"]
     },
@@ -28,6 +25,5 @@
         "@typescript-eslint/explicit-member-accessibility": "off",
         "react-hooks/rules-of-hooks": "error",
         "prettier/prettier": ["error", { "singleQuote": true }]
-        // "react-hooks/exhaustive-deps": "warn"
     }
 }
