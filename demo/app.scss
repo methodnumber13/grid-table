@@ -1,0 +1,12 @@
+.test_table {
+    margin: 0 10em 0 2em;
+}
+
+.render_column_wrapper {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0.8em 0.2em 0.6em 0;
+    z-index: 3;
+    min-width: 0;
+}
