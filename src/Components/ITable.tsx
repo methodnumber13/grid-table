@@ -8,8 +8,7 @@ import {
     ReactElement,
     FC,
 } from 'react';
-import { Body, Head, Row } from './index';
-import { HoverButtonProps } from './Buttons';
+import { Body, Head, Row, HoverButtonProps } from './';
 
 export interface ExtraTableProps {
     className?: string;
@@ -22,7 +21,6 @@ export interface ExtraTableProps {
 export interface TableProps<T> extends ExtraTableProps {
     columns: ColumnProps<T>[];
     data: T[];
-    // children?: ReactNode;
 }
 export interface TableState<T> extends Omit<TableProps<T>, 'data' | 'columns'> {
     data?: T[];

@@ -23,13 +23,13 @@ export type HoverButtonProps<T> = {
 } & Omit<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, 'onClick'> &
     Partial<Omit<RenderRowProps<T>, 'index'>>;
 
-export type HoverOnclickEvent = ({
-    ...props
-}: {
+export type HoverOnclickEvent = ({ ...props }: HoverOnclickEventProps) => void;
+
+export type HoverOnclickEventProps = {
     event?: React.MouseEvent<any>;
     record?: ExternalTProps;
     renderedData?: any[];
-}) => void;
+};
 
 export type ExternalIconCSSProps = {
     '--icon-size'?: string;
