@@ -1,8 +1,7 @@
-import React, { memo, useMemo, FC } from 'react';
+import React, { useMemo, FC } from 'react';
 import { jc } from '../Helpers';
 import './icon.scss';
-import { IconProps, ExtCSSProps, Size } from '../Buttons';
-import { ObjectMap } from '../ITable';
+import { IconProps, ExtCSSProps, Size, ObjectMap } from '../';
 
 const sizes: ObjectMap<Size, ReturnType<any>> = {
     xxs: '8px',
@@ -12,7 +11,7 @@ const sizes: ObjectMap<Size, ReturnType<any>> = {
     l: '32px',
 };
 
-export const Icon: FC<IconProps> = memo(({ children, className = '', iconSize, style }) => {
+export const Icon: FC<IconProps> = ({ children, className = '', iconSize, style }) => {
     const classNames = useMemo(() => jc('icon', className), [className]);
     const styles: ExtCSSProps = { ['--icon-size']: sizes[iconSize as Size], ...style };
 
@@ -21,4 +20,4 @@ export const Icon: FC<IconProps> = memo(({ children, className = '', iconSize, s
             {children}
         </span>
     );
-});
+};

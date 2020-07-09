@@ -2,7 +2,7 @@ import React from 'react';
 import './hoverButton.scss';
 import { jc } from '../../Helpers';
 import constant from '../../constants';
-import { IHoverButtonProps, Button } from '../';
+import { IHoverButtonProps, Button } from '../../';
 
 export const HoverButton: IHoverButtonProps = function (props) {
     const { children, className = '', record, rowIndex, onClick, renderedData, ...rest } = props;

@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
-import { ShortArrow } from '../../SVG/ShortArrow';
-import { ArrowBtnProps, IconButton } from '../';
+import { ArrowBtnProps, IconButton, ShortArrow } from '../../';
 import { jc } from '../../Helpers';
 import './arrowButton.scss';
 

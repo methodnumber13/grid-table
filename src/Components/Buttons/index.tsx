@@ -1,12 +1,13 @@
-export { ArrowButton } from './Arrow/ArrowButton';
-export { Button } from './Default/Button';
-export { HoverButton } from './Hover/HoverButton';
-export { IconButton } from './Icon/IconButton';
+export { ArrowButton } from './Arrow';
+export { Button } from './Default';
+export { HoverButton } from './Hover';
+export { IconButton } from './Icon';
 export type {
     IconButtonProps,
     ArrowBtnProps,
     HoverButtonProps,
     HoverOnclickEvent,
+    HoverOnclickEventProps,
     ExternalIconCSSProps,
     ExtCSSProps,
     ButtonSize,

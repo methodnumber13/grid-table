@@ -1,11 +1,12 @@
-import React from 'react';
-import { BodyProps } from '../ITable';
-import Row from '../Row/Row';
+import React, { FC } from 'react';
+import { BodyProps } from '../';
 import { useObservable } from '../customHooks/ObservableHook/observableHook';
 import { tableSvc } from '../services/services';
-import { joinClasses } from '../Helpers';
+import { jc } from '../Helpers';
 
-export default function Body<T>(props: BodyProps<T>) {
+export type IBodyProps<T = any> = FC<BodyProps<T>>;
+
+export const Body: IBodyProps = function (props) {
     const { children, className = '', ...rest } = props;
     const { data } = useObservable(tableSvc.State);
 
@@ -16,9 +17,8 @@ export default function Body<T>(props: BodyProps<T>) {
     };
 
     return (
-        <div className={joinClasses('grid_table_body', className)} {...rest}>
+        <div className={jc('grid_table_body', className)} {...rest}>
             {renderChildren()}
         </div>
     );
-}
-Body.Row = Row;
+};

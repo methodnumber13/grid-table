@@ -1,14 +1,13 @@
-import React, { useEffect } from 'react';
-import { RowProps, ExternalTProps } from '../ITable';
-import HoverButton from '../Button/Button';
+import React, { useEffect, FC } from 'react';
+import { RowProps, ExternalTProps, Column, RowWrapper, HoverButton } from '../';
 import { tableSvc } from '../services/services';
 import { useObservable } from '../customHooks/ObservableHook/observableHook';
-import Column from '../Column/Column';
-import RowWrapper from '../Wrappers/Row/RowWrapper';
 import './row.scss';
 
-function Row<T extends ExternalTProps>(props: RowProps<T>) {
-    const { hoverButton, ...rest } = props;
+export type IRowProps<T = ExternalTProps> = FC<RowProps<T>>;
+
+export const Row: IRowProps = function (props) {
+    const { hoverButton = null, ...rest } = props;
     const { columns, data } = useObservable(tableSvc.State);
     const addHoverButton = () => {
         columns.push({
@@ -17,6 +16,7 @@ function Row<T extends ExternalTProps>(props: RowProps<T>) {
             dataIndex: 'hoverButton',
             toRender: ({ index, record, renderedData }) => (
                 <HoverButton
+                    className='hover-btn'
                     renderedData={renderedData}
                     record={record}
                     rowIndex={index}
@@ -33,7 +33,7 @@ function Row<T extends ExternalTProps>(props: RowProps<T>) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [columns, hoverButton]);
 
-    function renderRow(record: T) {
+    function renderRow(record: unknown) {
         return columns.map((column, i) => (
             <Column column={column} record={record} rowIndex={i} key={`${column.key}${i}`} />
         ));
@@ -48,6 +48,4 @@ function Row<T extends ExternalTProps>(props: RowProps<T>) {
             ))}
         </>
     );
-}
-Row.HoverButton = HoverButton;
-export default Row;
+};

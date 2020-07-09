@@ -1,6 +1,5 @@
 import React, { SVGProps, FC } from 'react';
-import { ObjectMap } from '../ITable';
-import { Direction } from '../Buttons';
+import { ObjectMap, Direction } from '../../';
 
 export interface ShortArrowProps extends SVGProps<SVGSVGElement> {
     direction?: Direction;
