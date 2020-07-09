@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 import constant from '../../constants';
-import { HeadWrapperProps } from '../../ITable';
+import { HeadWrapperProps } from '../../';
 import './headWrapper.scss';
 import { useObservable } from '../../customHooks/ObservableHook/observableHook';
 import { tableSvc } from '../../services/services';
 
-export default function RenderHeads({ children, style = {} }: HeadWrapperProps) {
+export const HeadWrapper: FC<HeadWrapperProps> = function ({ children, style = {} }) {
     const { columns, data } = useObservable(tableSvc.State);
     const checkAfterFiltering = () => {
         const lengthAfterFilter = columns?.filter(col => col.title).length;
@@ -24,4 +24,4 @@ export default function RenderHeads({ children, style = {} }: HeadWrapperProps) 
     }
 
     return renderWrapper();
-}
+};

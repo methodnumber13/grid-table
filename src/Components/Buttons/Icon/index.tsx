@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
-import { Button, IconButtonProps } from '../';
-import { Icon } from '../../Icon/Icon';
+import { Button, IconButtonProps, Icon } from '../..';
 
 export const IconButton: FC<IconButtonProps> = function (props) {
     const { iconSize, style, className, children, buttonSize, ...rest } = props;
