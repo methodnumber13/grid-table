@@ -1,5 +1,6 @@
 import React, { useEffect, FC } from 'react';
-import { RowProps, ExternalTProps, Column, RowWrapper, HoverButton } from '../';
+import { RowProps, ExternalTProps, Column, HoverButton } from '../';
+import { RowWrapper } from '../Wrappers';
 import { tableSvc } from '../services/services';
 import { useObservable } from '../customHooks/ObservableHook/observableHook';
 import './row.scss';
@@ -42,7 +43,7 @@ export const Row: IRowProps = function (props) {
     return (
         <>
             {[...data].map((record, index) => (
-                <RowWrapper record={record} index={index} {...rest}>
+                <RowWrapper record={record} index={index} key={`row${index}`} {...rest}>
                     {renderRow(record)}
                 </RowWrapper>
             ))}

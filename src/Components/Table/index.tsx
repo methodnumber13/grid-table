@@ -1,6 +1,7 @@
 import React, { useEffect, FC } from 'react';
 import './table.scss';
-import { Body, Head, Row, TableProps, SpinnerWrapper } from '../';
+import { Body, Head, Row, TableProps } from '../';
+import { SpinnerWrapper } from '../Wrappers';
 import constant from '../constants';
 import { tableSvc } from '../services/services';
 

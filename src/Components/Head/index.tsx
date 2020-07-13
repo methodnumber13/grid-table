@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
-import { HeaderProps, HeadWrapper } from '../';
+import { HeaderProps } from '../';
+import { HeadWrapper } from '../Wrappers';
 import { useObservable } from '../customHooks/ObservableHook/observableHook';
 import { tableSvc } from '../services/services';
 import { jc, setTemplate } from '../Helpers';
