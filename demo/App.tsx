@@ -1,8 +1,7 @@
 import React, { useEffect, useState, FC } from 'react';
-import { Table, Head, Body, Row } from '../src/Components';
+import { Table, Head, Body, Row, HoverOnclickEventProps, Pagination } from '../src/Components';
 import { columns, data as tableData } from './data';
 import './app.scss';
-import { HoverOnclickEventProps } from '../src/Components/Buttons';
 
 const App: FC = () => {
     const [data, setData] = useState(tableData);
@@ -28,6 +27,7 @@ const App: FC = () => {
                     }}
                 ></Row>
             </Body>
+            <Pagination pageSize={3} position='center' size='l' />
         </Table>
     );
 };
