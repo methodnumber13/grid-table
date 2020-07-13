@@ -1,5 +1,5 @@
 import { Observable } from '../customHooks/ObservableHook/observable';
-import { TableProps, TableState } from '../ITable';
+import { TableProps, TableState } from '..';
 
 export default class TableService<T extends any> {
     readonly initialState: TableProps<T> = {
