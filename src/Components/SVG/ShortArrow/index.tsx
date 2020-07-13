@@ -13,7 +13,7 @@ const rotationByDirection: ObjectMap<Direction, number> = {
 };
 
 export const ShortArrow: FC<ShortArrowProps> = ({ direction = 'right', ...props }) => (
-    <svg viewBox='0 0 9 14' xmlns='http://www.w3.org/2000/svg' {...props}>
+    <svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' {...props}>
         <path
             style={{
                 transformOrigin: 'center',
@@ -21,7 +21,7 @@ export const ShortArrow: FC<ShortArrowProps> = ({ direction = 'right', ...props 
             }}
             fillRule='evenodd'
             clipRule='evenodd'
-            d='M1.6 0L0 1.6L5.4 6.99995L0 12.4L1.6 14L8.6 6.99995L1.6 0Z'
+            d='M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z'
         />
     </svg>
 );
