@@ -1,4 +1,4 @@
-import { TableTemplateType } from '../ITable';
+import { TableTemplateType } from '..';
 import constant from '../constants';
 
 export default function setTemplate(template: TableTemplateType) {

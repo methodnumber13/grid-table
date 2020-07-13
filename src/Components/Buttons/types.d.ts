@@ -33,6 +33,7 @@ export type HoverOnclickEventProps = {
 
 export type ExternalIconCSSProps = {
     '--icon-size'?: string;
+    '--button-cursor'?: string;
 };
 
 export type ExtCSSProps = CSSProperties & ExternalIconCSSProps;

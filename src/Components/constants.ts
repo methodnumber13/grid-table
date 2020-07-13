@@ -1,3 +1,4 @@
 const GridTable = 'grid_table';
+const PagSize = 'pagination_size';
 
-export default { GridTable };
+export default { GridTable, PagSize };

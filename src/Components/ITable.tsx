@@ -8,7 +8,7 @@ import {
     ReactElement,
     FC,
 } from 'react';
-import { Body, Head, Row, HoverButtonProps } from './';
+import { Body, Head, Row, HoverButtonProps, Size } from './';
 
 export interface ExtraTableProps {
     className?: string;
@@ -59,7 +59,6 @@ export interface HeadWrapperProps extends HTMLAttributes<HTMLDivElement> {
 
 export interface PagesWrapperProps extends HTMLAttributes<HTMLDivElement> {
     children?: ReactNode;
-    disabled?: boolean;
 }
 
 export interface RowWrapperProps<T> extends Omit<RowProps<T>, 'hoverButton'> {
@@ -108,17 +107,32 @@ export type PaginationFullPosType =
     | 'middle-top'
     | 'middle-bottom';
 // export type PaginationPosType = PaginationShortPosType | PaginationFullPosType;
-export interface PaginationProps extends HTMLAttributes<HTMLDivElement> {
+
+export interface PaginationBaseProps {
     position?: PositionType;
-    size?: PaginationSizeType;
     disabled?: boolean;
+}
+export interface PaginationWrapperProps
+    extends HTMLAttributes<HTMLDivElement>,
+        PaginationBaseProps {}
+export interface PaginationProps extends HTMLAttributes<HTMLDivElement>, PaginationBaseProps {
+    size?: PaginationSizeType;
+    arrowSize?: Size;
     pageSize: number;
+}
+
+export interface PaginationMainProps extends Omit<PaginationProps, 'pageSize'> {
+    disabled?: boolean;
 }
 
 export interface PageProps {
     data?: any[];
     number?: number;
 }
+
+export type PageListProps = {
+    size?: PaginationSizeType;
+};
 
 export interface PaginationState extends Omit<PaginationProps, 'pageSize'> {
     pages?: PageProps[];
@@ -128,6 +142,7 @@ export interface PaginationState extends Omit<PaginationProps, 'pageSize'> {
     total?: number;
     pageSize?: number;
     isPagination?: boolean;
+    count?: number;
 }
 
 export interface RowFuncType<T> extends FC<RowProps<T>>, RowComponentProps {}
