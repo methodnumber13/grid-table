@@ -4,9 +4,11 @@ import { jc } from '../../Helpers';
 import { IButtonProps } from '..';
 
 export const Button: FC<IButtonProps> = function (props) {
-    const { children, className = '', size, ...rest } = props;
+    const { children, disabled, style, className = '', size, ...rest } = props;
+    const isDisabled = (name: string) => (disabled ? name : '');
+
     return (
-        <button className={jc('default_btn', className)} {...rest}>
+        <button className={jc('default_btn', isDisabled('btn_disabled'), className)} {...rest}>
             {children}
         </button>
     );
