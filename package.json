@@ -29,7 +29,11 @@
         "webpack:dev": "node node_modules/.bin/webpack --config ./webpack.dev.js --progress --display-error-details",
         "prettier-format": "prettier --config .prettierrc.json 'src/**/*.{ts,tsx}' --write",
         "prebuild": "tsc -p ./tsconfig.json",
-        "copycfg": "cp package.json README.md lib"
+        "copycfg": "cp package.json README.md lib",
+        "test": "jest",
+        "test:watch": "jest --watch",
+        "test:coverage": "jest --coverage",
+        "test:update": "jest -u"
     },
     "browserslist": {
         "production": [
@@ -45,7 +49,8 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "lint-staged"
+            "pre-commit": "lint-staged",
+            "pre-push": "npm run test"
         }
     },
     "lint-staged": {
@@ -56,16 +61,19 @@
         ]
     },
     "devDependencies": {
-        "typescript": "^3.9.6",
         "@babel/core": "^7.9.6",
         "@babel/plugin-proposal-class-properties": "^7.8.3",
         "@babel/plugin-proposal-decorators": "^7.8.3",
+        "@babel/plugin-proposal-nullish-coalescing-operator": "^7.10.4",
+        "@babel/plugin-proposal-optional-chaining": "^7.10.4",
+        "@babel/plugin-transform-runtime": "^7.10.4",
         "@babel/preset-env": "^7.9.6",
         "@babel/preset-react": "^7.9.4",
         "@babel/preset-typescript": "^7.9.0",
         "@hot-loader/react-dom": "^16.13.0",
         "@testing-library/jest-dom": "^4.2.4",
-        "@testing-library/react": "^9.3.2",
+        "@testing-library/react": "^9.5.0",
+        "@testing-library/react-hooks": "^3.3.0",
         "@testing-library/user-event": "^7.1.2",
         "@types/axios": "^0.14.0",
         "@types/express": "^4.17.7",
@@ -73,9 +81,11 @@
         "@types/node": "^12.0.0",
         "@types/react": "^16.9.34",
         "@types/react-dom": "^16.9.7",
+        "@types/react-test-renderer": "^16.9.2",
         "@typescript-eslint/eslint-plugin": "^2.31.0",
         "@typescript-eslint/parser": "^2.31.0",
         "babel-loader": "^8.1.0",
+        "babel-plugin-module-resolver": "^4.0.0",
         "case-sensitive-paths-webpack-plugin": "^2.3.0",
         "circular-dependency-plugin": "^5.2.0",
         "clean-webpack-plugin": "^3.0.0",
@@ -94,6 +104,8 @@
         "html-loader": "^1.1.0",
         "html-webpack-plugin": "^4.3.0",
         "husky": "^4.2.5",
+        "jest": "^26.1.0",
+        "jest-transform-stub": "^2.0.0",
         "lint-staged": "^10.2.2",
         "mini-css-extract-plugin": "^0.9.0",
         "node-sass": "^4.13.1",
@@ -108,7 +120,9 @@
         "source-map-loader": "^0.2.4",
         "style-loader": "^1.2.1",
         "terser-webpack-plugin": "^3.0.3",
+        "ts-jest": "^26.1.2",
         "ts-loader": "^7.0.2",
+        "typescript": "^3.9.6",
         "typings-for-css-modules-loader": "^1.7.0",
         "webpack": "^4.43.0",
         "webpack-cli": "^3.3.12",

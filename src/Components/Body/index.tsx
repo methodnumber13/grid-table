@@ -4,7 +4,7 @@ import { useObservable } from '../customHooks/ObservableHook/observableHook';
 import { tableSvc } from '../services/services';
 import { jc } from '../Helpers';
 
-export type IBodyProps<T = any> = FC<BodyProps<T>>;
+export type IBodyProps<T = unknown> = FC<BodyProps<T>>;
 
 export const Body: IBodyProps = function (props) {
     const { children, className = '', ...rest } = props;
