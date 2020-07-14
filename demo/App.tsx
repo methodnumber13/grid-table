@@ -24,7 +24,7 @@ const App: FC = () => {
                 <Row
                     onClick={onClick}
                     hoverButton={{
-                        ...onClick,
+                        onClick,
                     }}
                 ></Row>
             </Body>
