@@ -138,7 +138,7 @@ export interface PaginationState extends Omit<PaginationProps, 'pageSize'> {
     pages?: PageProps[];
     curPage?: PageProps;
     prevPage?: PageProps;
-    pData?: any[];
+    items?: any[];
     total?: number;
     pageSize?: number;
     isPagination?: boolean;

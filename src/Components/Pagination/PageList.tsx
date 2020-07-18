@@ -2,13 +2,12 @@ import React, { FC } from 'react';
 import { Button, PageProps, PageListProps } from '..';
 import { jc } from '../Helpers';
 import { tableSvc, paginationSvc } from '../services/services';
-import { PagesWrapper } from '../Wrappers';
+import { PageListWrapper } from '../Wrappers';
 import constant from '../constants';
 import { useObservable } from '../customHooks/ObservableHook/observableHook';
 
-const Pages: FC<PageListProps> = function (props) {
-    const { pages, curPage } = useObservable(paginationSvc.State);
-    const { size } = props;
+export const PageList: FC<PageListProps> = function (props) {
+    const { pages, curPage, size = 'm' } = useObservable(paginationSvc.State);
 
     function pageOnClick(event: React.MouseEvent<HTMLButtonElement, MouseEvent>, page: PageProps) {
         event.stopPropagation();
@@ -20,25 +19,19 @@ const Pages: FC<PageListProps> = function (props) {
 
     const setSize = () => `${constant.PagSize}_${size}`;
 
+    const setActive = (i: number) => (curPage?.number === i + 1 ? `page_active_btn` : '');
+
     return (
-        <>
+        <PageListWrapper>
             {pages?.map((page, i) => (
                 <Button
                     key={`page${i}`}
                     onClick={event => pageOnClick(event, page)}
-                    className={jc('pagination_btn', setSize())}
+                    className={jc('pagination_btn', setSize(), setActive(i))}
                 >
                     {page.number}
                 </Button>
             ))}
-        </>
-    );
-};
-
-export const PageList: FC<PageListProps> = props => {
-    return (
-        <PagesWrapper>
-            <Pages {...props} />
-        </PagesWrapper>
+        </PageListWrapper>
     );
 };

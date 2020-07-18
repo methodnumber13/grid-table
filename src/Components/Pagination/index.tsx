@@ -8,7 +8,7 @@ import { PaginationMain } from './PaginationMain';
 
 export const Pagination: FC<PaginationProps> = function (props) {
     const { data } = useObservable(tableSvc.State);
-    const { total = 0, pages, curPage, pData, count } = useObservable(paginationSvc.State);
+    const { total = 0, pages, curPage, items, count } = useObservable(paginationSvc.State);
     const { pageSize, size, arrowSize, ...rest } = props;
 
     const getCount = () => Math.ceil(total / pageSize);
@@ -17,9 +17,17 @@ export const Pagination: FC<PaginationProps> = function (props) {
         paginationSvc.setPaginationState({ count: getCount() });
     }, [total, pageSize]);
 
+    useEffect(() => {
+        paginationSvc.setPaginationState({ size });
+    }, [size]);
+
+    useEffect(() => {
+        paginationSvc.setPaginationState({ arrowSize });
+    }, [arrowSize]);
+
     function getPages() {
         const pages: PageProps[] = [];
-        const pageData = [...pData!];
+        const pageData = [...items!];
         for (let i = 1; i <= count!; i++) {
             pages.push({ data: pageData.slice(0, pageSize), number: i });
             pageData.splice(0, pageSize);
@@ -28,8 +36,8 @@ export const Pagination: FC<PaginationProps> = function (props) {
     }
 
     useEffect(() => {
-        if (data?.length && total !== data.length && !pData?.length)
-            paginationSvc.setPaginationState({ total: data.length, pData: data });
+        if (data?.length && total !== data.length && !items?.length)
+            paginationSvc.setPaginationState({ total: data.length, items: data });
     }, [data]);
 
     useEffect(() => {
@@ -46,7 +54,7 @@ export const Pagination: FC<PaginationProps> = function (props) {
 
     return (
         <PaginationWrapper {...rest}>
-            <PaginationMain size={size} arrowSize={arrowSize} disabled={rest?.disabled} />
+            <PaginationMain disabled={rest?.disabled} />
         </PaginationWrapper>
     );
 };

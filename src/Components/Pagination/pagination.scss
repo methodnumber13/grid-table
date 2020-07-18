@@ -1,22 +1,38 @@
 .pagination_btn {
     cursor: pointer;
     color: black;
-    // padding: 8px 16px;
+    border-radius: 0.4em;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: white;
     text-decoration: none;
-    &:active {
-        background-color: rgb(11, 226, 18);
-        color: white;
-        border-radius: 5px;
+    &:hover{
+        border: 1.5px solid rgba(3, 3, 3, 0.76);
     }
-    // &:hover:not(.active) {
-    //     background-color: #ddd;
-    //     border-radius: 5px;
-    // }
+    &:active {
+        background-color: rgb(218, 214, 214);
+        color: white;
+    }
 }  
+
+.arrow_btn {
+    border-radius: 0.4em;
+    &:hover{
+        border: 1.5px solid rgba(3, 3, 3, 0.76);
+    }
+    &:active {
+        background-color: rgb(218, 214, 214);
+        color: white;
+    }
+}
+
+.page_active_btn {
+    border: 1.5px solid rgba(12, 10, 10, 0.658);
+}
 
 .pagination_main {
     --button-cursor: pointer;
-
+    // padding: 1em 0 0 0;
+    margin: 1em 0 0 0 ;
     cursor: var(--button-cursor);
     display: flex;
     flex-direction: row;

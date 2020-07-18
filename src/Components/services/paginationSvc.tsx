@@ -10,7 +10,7 @@ export default class PaginationService<T> {
         total: 0,
         position: 'end', //'rb'
         pages: [],
-        pData: [],
+        items: [],
         isPagination: false,
         count: 1,
     };

@@ -27,7 +27,7 @@ const App: FC = () => {
                     }}
                 ></Row>
             </Body>
-            <Pagination pageSize={3} position='center' size='l' />
+            <Pagination pageSize={3} position='end' size='l' />
         </Table>
     );
 };
