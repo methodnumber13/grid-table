@@ -6,7 +6,7 @@
     background-color: white;
     text-decoration: none;
     &:hover{
-        border: 1.5px solid rgba(3, 3, 3, 0.76);
+        border: 2px solid rgba(3, 3, 3, 0.76);
     }
     &:active {
         background-color: rgb(218, 214, 214);
@@ -17,7 +17,7 @@
 .arrow_btn {
     border-radius: 0.4em;
     &:hover{
-        border: 1.5px solid rgba(3, 3, 3, 0.76);
+        border: 2px solid rgba(3, 3, 3, 0.76);
     }
     &:active {
         background-color: rgb(218, 214, 214);
@@ -26,7 +26,7 @@
 }
 
 .page_active_btn {
-    border: 1.5px solid rgba(12, 10, 10, 0.658);
+    border: 2px solid rgba(12, 10, 10, 0.658);
 }
 
 .pagination_main {
