@@ -1,4 +1,4 @@
-import { Observable } from '../customHooks/ObservableHook/observable';
+import { Observable } from '../../Hooks';
 import { PaginationState } from '../';
 
 export default class PaginationService<T> {

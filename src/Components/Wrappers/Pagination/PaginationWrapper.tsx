@@ -1,21 +1,15 @@
-import React, { useMemo, FC } from 'react';
+import React, { FC } from 'react';
 import { PaginationWrapperProps } from '../..';
-import { jc } from '../../Helpers';
-import { Position } from '../../DataTypes';
+import { jc } from '../../../Helpers';
 import './index.scss';
+import { usePosition } from '../../../Hooks';
 
 const isDisabled = (disabled: boolean) => (disabled ? `disabled` : '');
 
 export const PaginationWrapper: FC<PaginationWrapperProps> = function (props) {
     const { children, disabled = false, position = 'end', style = {}, className = '' } = props;
 
-    const setPosition = useMemo(
-        function () {
-            const pos = Position[position!];
-            if (pos) return { justifyContent: pos };
-        },
-        [position]
-    );
+    const setPosition = usePosition('pagination', position);
 
     return (
         <div

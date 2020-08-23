@@ -2,7 +2,7 @@ import React, { useEffect, FC } from 'react';
 import './table.scss';
 import { Body, Head, Row, TableProps } from '../';
 import { SpinnerWrapper } from '../Wrappers';
-import constant from '../constants';
+import constant from '../../constants';
 import { tableSvc } from '../services/services';
 
 export type ITableProps<T = unknown> = FC<TableProps<T>>;

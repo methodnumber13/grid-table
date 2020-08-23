@@ -38,12 +38,12 @@ export type TableTemplateType = 'list' | 'table';
 
 export type PositionType = 'start' | 'end' | 'center';
 
-export interface HeaderProps<T> extends HTMLAttributes<HTMLDivElement> {
+export interface HeaderProps extends HTMLAttributes<HTMLDivElement> {
     position?: PositionType;
     wrapperStyle?: CSSProperties;
 }
 
-export interface BodyProps<T> extends HTMLAttributes<HTMLDivElement> {
+export interface BodyProps extends HTMLAttributes<HTMLDivElement> {
     children?: ReactNode;
     toUpdate?: ToUpdate;
     className?: string;
@@ -61,13 +61,18 @@ export interface PagesWrapperProps extends HTMLAttributes<HTMLDivElement> {
     children?: ReactNode;
 }
 
+export interface RowProps<T> extends Omit<HTMLAttributes<HTMLDivElement>, 'onClick'> {
+    onClick?: RowOnclickEvent;
+    toUpdate?: ToUpdate;
+    hoverButton?: HoverButtonProps<T> | null;
+}
 export interface RowWrapperProps<T> extends Omit<RowProps<T>, 'hoverButton'> {
     children?: ReactNode;
     record: T;
     index: number;
 }
 
-export interface BodyFuncType<T> extends FC<BodyProps<T>>, BodyComponentProps {}
+export interface BodyFuncType<T> extends FC<BodyProps>, BodyComponentProps {}
 export interface BodyComponentProps {
     Row?: typeof Row;
 }
@@ -90,12 +95,6 @@ export interface ColumnType<T> extends HTMLAttributes<HTMLSpanElement> {
 
 export interface ColumnFuncType<T> extends FC<ColumnType<T>>, ColumnComponentProps {}
 export interface ColumnComponentProps {}
-
-export interface RowProps<T> extends Omit<HTMLAttributes<HTMLDivElement>, 'onClick'> {
-    onClick?: RowOnclickEvent;
-    toUpdate?: ToUpdate;
-    hoverButton?: HoverButtonProps<T> | null;
-}
 
 export type PaginationSizeType = 's' | 'm' | 'l';
 export type PaginationShortPosType = 'lt' | 'lb' | 'rt' | 'rb' | 'mt' | 'mb';

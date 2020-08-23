@@ -1,12 +1,10 @@
 import React, { FC } from 'react';
 import { BodyProps } from '../';
-import { useObservable } from '../customHooks/ObservableHook/observableHook';
+import { useObservable } from '../../Hooks';
 import { tableSvc } from '../services/services';
-import { jc } from '../Helpers';
+import { jc } from '../../Helpers';
 
-export type IBodyProps<T = any> = FC<BodyProps<T>>;
-
-export const Body: IBodyProps = function (props) {
+export const Body: FC<BodyProps> = function (props) {
     const { children, className = '', ...rest } = props;
     const { data } = useObservable(tableSvc.State);
 

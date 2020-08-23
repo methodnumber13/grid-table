@@ -1,31 +1,39 @@
 import React, { FC } from 'react';
 import { HeaderProps } from '../';
 import { HeadWrapper } from '../Wrappers';
-import { useObservable } from '../customHooks/ObservableHook/observableHook';
+import { useObservable } from '../../Hooks';
 import { tableSvc } from '../services/services';
-import { jc, setTemplate } from '../Helpers';
+import { jc, setTemplate } from '../../Helpers';
 import './head.scss';
-import { Position } from '../DataTypes';
+import { usePosition } from '../../Hooks';
 
-export type IHeadProps<T = any> = FC<HeaderProps<T>>;
+export const Head: FC<HeaderProps> = function (props) {
+    const { className = '', style = {}, position = 'start', wrapperStyle = {}, ...rest } = props;
+    const { columns, template = 'table' } = useObservable(tableSvc.State);
 
-export const Head: IHeadProps = function (props) {
-    const { className = '', style = {}, position, wrapperStyle = {}, ...rest } = props;
-    const { columns, template } = useObservable(tableSvc.State);
+    const setPosition = usePosition('head', position);
 
-    function setPosition() {
-        const pos = Position[position!];
-        if (pos) return { justifyContent: pos };
-    }
+    const RenderHead = function () {
+        const cn = jc('head_subgrid', `column_container`, setTemplate(template), className);
+        return (
+            <>
+                {columns.map(column => (
+                    <span
+                        {...rest}
+                        className={cn}
+                        key={column.key}
+                        style={{ ...style, ...setPosition }}
+                    >
+                        <span className='render_column_wrapper'>{column.title}</span>
+                    </span>
+                ))}
+            </>
+        );
+    };
 
-    function renderHead() {
-        const cn = jc('head_subgrid', `column_container`, setTemplate(template!), className);
-        return columns.map(column => (
-            <span {...rest} className={cn} key={column.key} style={{ ...style, ...setPosition() }}>
-                <span className='render_column_wrapper'>{column.title}</span>
-            </span>
-        ));
-    }
-
-    return <HeadWrapper style={wrapperStyle}>{renderHead()}</HeadWrapper>;
+    return (
+        <HeadWrapper style={wrapperStyle}>
+            <RenderHead />
+        </HeadWrapper>
+    );
 };

@@ -2,18 +2,20 @@ import React, { FC } from 'react';
 import { PageListProps, ArrowButton } from '../..';
 import { paginationSvc } from '../../services/services';
 import { PagesWrapper } from '../../Wrappers';
-import { useObservable } from '../../customHooks/ObservableHook/observableHook';
+import { useObservable } from '../../../Hooks';
 
 export const PageListWrapper: FC<PageListProps> = props => {
-    const { pages, curPage, count } = useObservable(paginationSvc.State);
-    const arrowOnClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, flag: number) => {
+    const { pages, curPage, count = 0 } = useObservable(paginationSvc.State);
+    const arrowOnClick = (
+        e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+        countToPage: number
+    ) => {
         e.stopPropagation();
-        if (curPage?.number! > 1 || curPage?.number! < count!) {
+        if (curPage && curPage.number && (curPage.number > 1 || curPage.number < count))
             paginationSvc.setPaginationState({
-                curPage: pages?.[curPage?.number! - flag],
+                curPage: pages?.[curPage.number - countToPage],
                 prevPage: curPage,
             });
-        }
     };
     return (
         <PagesWrapper>

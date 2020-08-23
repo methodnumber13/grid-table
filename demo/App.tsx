@@ -23,11 +23,11 @@ const App: FC = () => {
                 <Row
                     onClick={onClick}
                     hoverButton={{
-                        ...onClick,
+                        onClick,
                     }}
                 ></Row>
             </Body>
-            <Pagination pageSize={3} position='end' size='l' />
+            <Pagination pageSize={3} position='end' arrowSize='s' />
         </Table>
     );
 };

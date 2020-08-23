@@ -12,19 +12,16 @@ export const columns: ColumnProps<DataProps>[] = [
         title: 'Name',
         key: 'name',
         dataIndex: 'name',
-        toRender: ({ record }) => <span className='render_column_wrapper'>{record.name}</span>,
     },
     {
         title: 'Country',
         key: 'country',
         dataIndex: 'country',
-        toRender: ({ record }) => <span className='render_column_wrapper'>{record.country}</span>,
     },
     {
         title: 'Number',
         key: 'number',
         dataIndex: 'number',
-        toRender: ({ record }) => <span className='render_column_wrapper'>{record.number}</span>,
     },
 ];
 

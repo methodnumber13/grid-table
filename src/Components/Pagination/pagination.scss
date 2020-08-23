@@ -8,20 +8,12 @@
     &:hover{
         border: 2px solid rgba(3, 3, 3, 0.76);
     }
-    &:active {
-        background-color: rgb(218, 214, 214);
-        color: white;
-    }
 }  
 
 .arrow_btn {
     border-radius: 0.4em;
     &:hover{
         border: 2px solid rgba(3, 3, 3, 0.76);
-    }
-    &:active {
-        background-color: rgb(218, 214, 214);
-        color: white;
     }
 }
 
@@ -31,7 +23,6 @@
 
 .pagination_main {
     --button-cursor: pointer;
-    // padding: 1em 0 0 0;
     margin: 1em 0 0 0 ;
     cursor: var(--button-cursor);
     display: flex;

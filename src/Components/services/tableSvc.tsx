@@ -1,4 +1,4 @@
-import { Observable } from '../customHooks/ObservableHook/observable';
+import { Observable } from '../../Hooks';
 import { TableProps, TableState } from '..';
 
 export default class TableService<T extends any> {

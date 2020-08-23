@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import { Button, PageProps, PageListProps } from '..';
-import { jc } from '../Helpers';
+import { jc } from '../../Helpers';
 import { tableSvc, paginationSvc } from '../services/services';
 import { PageListWrapper } from '../Wrappers';
-import constant from '../constants';
-import { useObservable } from '../customHooks/ObservableHook/observableHook';
+import constant from '../../constants';
+import { useObservable } from '../../Hooks';
 
 export const PageList: FC<PageListProps> = function (props) {
     const { pages, curPage, size = 'm' } = useObservable(paginationSvc.State);

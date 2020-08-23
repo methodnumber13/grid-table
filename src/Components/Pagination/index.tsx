@@ -1,6 +1,6 @@
 import React, { useEffect, FC } from 'react';
 import { tableSvc, paginationSvc } from '../services/services';
-import { useObservable } from '../customHooks/ObservableHook/observableHook';
+import { useObservable } from '../../Hooks';
 import './pagination.scss';
 import { PaginationProps, PageProps } from '../';
 import { PaginationWrapper } from '../Wrappers';
@@ -8,7 +8,7 @@ import { PaginationMain } from './PaginationMain';
 
 export const Pagination: FC<PaginationProps> = function (props) {
     const { data } = useObservable(tableSvc.State);
-    const { total = 0, pages, curPage, items, count } = useObservable(paginationSvc.State);
+    const { total = 0, pages, curPage, items = [], count = 0 } = useObservable(paginationSvc.State);
     const { pageSize, size, arrowSize, ...rest } = props;
 
     const getCount = () => Math.ceil(total / pageSize);
@@ -27,8 +27,8 @@ export const Pagination: FC<PaginationProps> = function (props) {
 
     function getPages() {
         const pages: PageProps[] = [];
-        const pageData = [...items!];
-        for (let i = 1; i <= count!; i++) {
+        const pageData = [...items];
+        for (let i = 1; i <= count; i++) {
             pages.push({ data: pageData.slice(0, pageSize), number: i });
             pageData.splice(0, pageSize);
         }

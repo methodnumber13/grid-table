@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import constant from '../../constants';
+import constant from '../../../constants';
 import { HeadWrapperProps } from '../../';
 import './headWrapper.scss';
-import { useObservable } from '../../customHooks/ObservableHook/observableHook';
+import { useObservable } from '../../../Hooks';
 import { tableSvc } from '../../services/services';
 
 export const HeadWrapper: FC<HeadWrapperProps> = function ({ children, style = {} }) {

@@ -1,5 +1,5 @@
 import React, { useMemo, FC } from 'react';
-import { jc } from '../Helpers';
+import { jc } from '../../Helpers';
 import './icon.scss';
 import { IconProps, ExtCSSProps, Size, ObjectMap } from '../';
 

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import './button.scss';
-import { jc } from '../../Helpers';
+import { jc } from '../../../Helpers';
 import { IButtonProps } from '..';
 
 export const Button: FC<IButtonProps> = function (props) {

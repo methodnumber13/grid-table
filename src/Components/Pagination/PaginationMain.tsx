@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { PaginationMainProps, ExtCSSProps } from '..';
 import { PageList } from './PageList';
-import { jc } from '../Helpers';
+import { jc } from '../../Helpers';
 import './pagination.scss';
-import { useObservable } from '../customHooks/ObservableHook/observableHook';
+import { useObservable } from '../../Hooks';
 import { paginationSvc } from '../services/services';
 
 export const PaginationMain: FC<PaginationMainProps> = function (props) {
